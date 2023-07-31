@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: silver;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .loginForm {
+            background-color: grey;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 400px;
+            max-width: 100%;
+        }
+
+        .loginForm h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+.loginForm label {
+    color: #333;
+    font-weight: bold;
+}
+
+.loginForm input[type="email"],
+.loginForm input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.loginForm input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 81, 81) ;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loginForm input[type="submit"]:hover {
+    background-color: red;
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="loginForm">
+            <h1>Login</h1>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <input type="submit" class="btn btn-danger" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+
+  <script>
+
+
+    const handleLogin = (event) => {
+    event.preventDefault();
+    
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+
+    if (isValidUser(email, password)) {
+        window.location.href = "a.html"; 
+    } else {
+        window.alert("Invalid email or password. Please try again.");
+    }
+};
+
+
+const isValidUser = (email, password) => {
+
+    return email.trim() !== '' && password.trim() !== '';
+};
+document.getElementById('loginForm').addEventListener('submit', handleLogin);
+
+  </script>
+</body>
+</html>
